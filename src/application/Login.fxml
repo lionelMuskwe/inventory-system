@@ -9,8 +9,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
    <children>
-      <TextField fx:id="loginUsername" layoutX="355.0" layoutY="275.0" prefHeight="41.0" prefWidth="329.0" text="username" />
-      <TextField fx:id="loginPassword" layoutX="355.0" layoutY="365.0" prefHeight="41.0" prefWidth="329.0" text="password" />
+      <TextField fx:id="loginUsername" layoutX="355.0" layoutY="275.0" prefHeight="41.0" prefWidth="329.0" promptText="username" />
+      <TextField fx:id="loginPassword" layoutX="355.0" layoutY="365.0" prefHeight="41.0" prefWidth="329.0" promptText="password" />
       <ImageView fx:id="loginLogo" fitHeight="135.0" fitWidth="241.0" layoutX="389.0" layoutY="57.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
          <viewport>
             <Rectangle2D />
@@ -19,6 +19,6 @@
             <Image url="@assets/images/rr-logo.png" />
          </image>
       </ImageView>
-      <Button fx:id="loginButton" layoutX="429.0" layoutY="467.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="181.0" text="Login" />
+      <Button fx:id="loginButton" layoutX="429.0" layoutY="467.0" mnemonicParsing="false" onAction="#login" prefHeight="72.0" prefWidth="181.0" text="Login" />
    </children>
 </AnchorPane>
