@@ -1,16 +1,22 @@
 package application;
 
+import java.io.IOException;
 import java.sql.Connection;
+//import application.SceneController;
 import java.sql.DriverManager;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
-
+import application.DashboardController;
 import javafx.scene.control.TextField;
 
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 public class LoginController {
 	@FXML
@@ -28,27 +34,38 @@ public class LoginController {
 			System.out.println("Trying to login!!!!!!!!");
 			System.out.println(event.toString());
 			
-			String username = loginUsername.getText();
+//			String username = loginUsername.getText();
+			String username = "root";
 			String password = loginPassword.getText();
 			
 			System.out.println(String.format("Details are: %s  and %s ", username, password));
-			establishDatabaseConnection(username, password);
+			if (establishDatabaseConnection(username, password) != null) {				
+				System.out.println("Switching to Dashboard !");
+				switchSceneToDashboard(event, username);
+			}
 		}
 		catch (Exception ex) {
 			System.out.println(ex.getMessage());
 		}
 	}
 	
+	public void switchSceneToDashboard(ActionEvent event, String username) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+		Parent root = (Parent) loader.load();
+		
+		DashboardController dashBoardController = loader.getController();
+		dashBoardController.setLoggedInUsername(username);
+		
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	
 	public Connection establishDatabaseConnection(String username, String password) {
-		Connection conn;
-		try {
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/laravel", username, password);
-			System.out.println("Connected to SQL server successfully");
-			return conn;
-		} catch (Exception ex) {
-			System.out.println("Failed to connect !!!");
-			System.out.println("Error: " + ex.getMessage());
-			return null;
-		}
+		
+		DatabaseConnection.setUsername(username);
+		DatabaseConnection.setPassword(password);
+		return DatabaseConnection.getInstance();
 	}
 }
