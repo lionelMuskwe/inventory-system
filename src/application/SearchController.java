@@ -131,6 +131,8 @@ public class SearchController {
 	public void searchBooks() {
 		if (getBooks().size() > 0) {
 			showBooks();
+		} else {
+			this.tvBooks.setItems(null);
 		}
 		
 	}
