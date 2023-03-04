@@ -3,6 +3,7 @@ import java.util.Date;
 
 public class Books {
 	private int id;
+	private String isbn;
 	private String title;
 	private String author;
 	private String description;
@@ -16,6 +17,7 @@ public class Books {
 			int inventoryID, int categoryID) {
 		super();
 		this.id = id;
+		this.isbn = "15654981354613";
 		this.title = title;
 		this.author = author;
 		this.description = description;
@@ -81,19 +83,28 @@ public class Books {
 		this.publisher = publisher;
 	}
 
-	public int getInventoryID() {
-		return inventoryID;
+	public String getInventoryID() {
+		return Integer.toString(inventoryID);
 	}
 
 	public void setInventoryID(int inventoryID) {
 		this.inventoryID = inventoryID;
 	}
 
-	public int getCategoryID() {
-		return categoryID;
+	public String getCategoryID() {
+		return Integer.toString(categoryID);
 	}
 
 	public void setCategoryID(int categoryID) {
 		this.categoryID = categoryID;
 	}
+	
+	public String getISBN() {
+		return isbn;
+	}
+
+	public void setISBN(String isbn) {
+		this.isbn = isbn;
+	}
+	
 }
