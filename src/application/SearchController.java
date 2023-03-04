@@ -1,5 +1,6 @@
 package application;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Date;
@@ -142,6 +143,10 @@ public class SearchController {
 	
 	@FXML 
 	public void insertRecord() {
+		String query = String.format("INSERT INTO `products`( `ISBN`, `title`, `author`, `description`, `image`, `price`,`date_published`, `publisher`, `inventory_id`, `category_id`) VALUES "
+				+ "('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')", tfISBN.getText(), tfTitle.getText(), tfAuthor.getText(),tfDescription.getText(),"https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png", tfPrice.getText(),tfDatePublished.getText(), tfPublisher.getText(), tfInventoryID.getText(), tfCategoryID.getText());
+		System.out.println(query);
+		executeQuery(query);
 		
 	}
 	
@@ -181,8 +186,24 @@ public class SearchController {
 		tfCategoryID.clear();
 	}
 	
+	private void executeQuery(String query) {
+		Connection conn = DatabaseConnection.getInstance();
+		Statement st;
+		try	{
+			st = conn.createStatement();
+			st.execute(query);
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+	}
 	
 }
+
+//@FXML 
+//public void insertRecord() {
+//	String query = "INSERT INTO `products`(`id`, `ISBN`, `title`, `author`, `description`, `price`, `image`,`date_published`, `publisher`, `inventory_id`, `category_id`) VALUES "
+//			+ "('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]','[value-10]', '[value-11]')";
+//}
 
 
 
