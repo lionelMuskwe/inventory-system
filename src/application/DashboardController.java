@@ -34,6 +34,10 @@ public class DashboardController {
 	public void openSearchPage(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("search.fxml"));
 		Parent root = (Parent) loader.load();
+		
+		SearchController searchController = loader.getController();
+		searchController.searchBooks();
+		
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
