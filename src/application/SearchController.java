@@ -6,6 +6,7 @@ import java.util.Date;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.Button;
@@ -13,7 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.TableView;
-
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TableColumn;
 
 public class SearchController {
@@ -21,6 +22,8 @@ public class SearchController {
 	private TextField searchTextField;
 	@FXML
 	private Button searchButton;
+	@FXML
+	private Button updateButton;
 	@FXML
 	private TableView<Books> tvBooks;
 	@FXML
@@ -33,6 +36,47 @@ public class SearchController {
 	private TableColumn<Books, Double> colPrice;
 	@FXML
 	private TableColumn<Books, Date> colPubDate;
+	
+	@FXML
+    private Button deleteRecordBtn;
+
+    @FXML
+    private Button insertRecordBtn;
+
+    @FXML
+    private TextField tfAuthor;
+
+    @FXML
+    private TextField tfCategoryID;
+
+    @FXML
+    private TextField tfDatePublished;
+
+    @FXML
+    private TextArea tfDescription;
+
+    @FXML
+    private TextField tfID;
+
+    @FXML
+    private TextField tfISBN;
+
+    @FXML
+    private TextField tfInventoryID;
+
+    @FXML
+    private TextField tfPrice;
+
+    @FXML
+    private TextField tfPublisher;
+
+    @FXML
+    private TextField tfTitle;
+
+
+    @FXML
+    private Button updateRecordBtn;
+
 	
 	
 	public ObservableList<Books> getBooks(){
@@ -80,12 +124,47 @@ public class SearchController {
 		this.tvBooks.setItems(list);
 	}
 	
+	@FXML
 	public void searchBooks() {
 		if (getBooks().size() > 0) {
 			showBooks();
 		}
 		
 	}
+	
+	@FXML
+	public void updateRecord() {
+		Books selectedBook = this.tvBooks.getSelectionModel().getSelectedItem();
+		System.out.println(selectedBook.getTitle());
+	}
+	
+	@FXML 
+	public void insertRecord() {
+		
+	}
+	
+	@FXML 
+	public void deleteRecord() {
+		
+	}
+	
+	@FXML 
+	public void passDetailsToTextfields() {
+		Books selectedBook = this.tvBooks.getSelectionModel().getSelectedItem();
+		tfTitle.setText(selectedBook.getTitle());
+		tfAuthor.setText(selectedBook.getAuthor());
+		tfDescription.setText(selectedBook.getDescription());
+		tfPrice.setText(selectedBook.getPrice());
+		tfPublisher.setText(selectedBook.getPublisher());
+		tfDatePublished.setText(selectedBook.getDatePub());
+		tfISBN.setText(selectedBook.getISBN());
+		tfID.setText(selectedBook.getId());
+		tfInventoryID.setText(selectedBook.getInventoryID());
+		tfCategoryID.setText(selectedBook.getCategoryID());
+		
+
+	}
+	
 	
 }
 

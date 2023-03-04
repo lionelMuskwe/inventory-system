@@ -4,34 +4,58 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SearchController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SearchController">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="34.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="52.0" fitWidth="114.0" layoutX="27.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/images/rr-icon.png" />
          </image>
       </ImageView>
-      <TextField fx:id="searchTextField" layoutX="26.0" layoutY="275.0" prefHeight="25.0" prefWidth="260.0" promptText="Product name" text="love" />
-      <Label layoutX="26.0" layoutY="238.0" prefHeight="20.0" prefWidth="185.0" text="Enter product name below">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Button fx:id="searchButton" layoutX="104.0" layoutY="328.0" mnemonicParsing="false" onAction="#searchBooks" text="Search database" />
-      <TableView fx:id="tvBooks" layoutX="318.0" layoutY="51.0" prefHeight="480.0" prefWidth="664.0">
+      <TextField fx:id="searchTextField" layoutX="552.0" layoutY="24.0" prefHeight="39.0" prefWidth="324.0" promptText="Search Book by Title" />
+      <Button fx:id="searchButton" layoutX="880.0" layoutY="24.0" mnemonicParsing="false" onAction="#searchBooks" prefHeight="39.0" prefWidth="103.0" text="Search database" />
+      <TableView fx:id="tvBooks" layoutX="338.0" layoutY="104.0" onMouseClicked="#passDetailsToTextfields" prefHeight="521.0" prefWidth="644.0">
          <columns>
             <TableColumn fx:id="colID" prefWidth="75.0" text="ID" />
             <TableColumn fx:id="colTitle" prefWidth="160.0" text="Title" />
             <TableColumn fx:id="colDescription" prefWidth="251.0" text="Decription" />
-            <TableColumn fx:id="colPrice" prefWidth="74.0" text="price" />
+            <TableColumn fx:id="colPrice" prefWidth="74.0" text="Price" />
             <TableColumn fx:id="colPubDate" prefWidth="103.0" text="Pub Date" />
          </columns>
       </TableView>
+      <Button fx:id="insertRecordBtn" layoutX="45.0" layoutY="535.0" mnemonicParsing="false" onAction="#insertRecord" prefHeight="25.0" prefWidth="243.0" text="Insert Record" />
+      <Button fx:id="updateRecordBtn" layoutX="46.0" layoutY="566.0" mnemonicParsing="false" onAction="#updateRecord" prefHeight="25.0" prefWidth="243.0" text="Update Record" />
+      <Button fx:id="deleteRecordBtn" layoutX="46.0" layoutY="597.0" mnemonicParsing="false" onAction="#deleteRecord" prefHeight="25.0" prefWidth="243.0" text="Delete Record" />
+      <TextField fx:id="tfID" layoutX="31.0" layoutY="111.0" prefHeight="25.0" prefWidth="69.0" promptText="---" />
+      <Label layoutX="33.0" layoutY="94.0" text="id" />
+      <TextField fx:id="tfISBN" layoutX="119.0" layoutY="112.0" prefHeight="25.0" prefWidth="184.0" promptText="---" />
+      <Label layoutX="120.0" layoutY="95.0" prefHeight="17.0" prefWidth="42.0" text="ISBN" />
+      <TextField fx:id="tfTitle" layoutX="31.0" layoutY="161.0" prefHeight="25.0" prefWidth="274.0" promptText="---" />
+      <Label layoutX="31.0" layoutY="144.0" text="Title" />
+      <TextField fx:id="tfAuthor" layoutX="30.0" layoutY="211.0" prefHeight="25.0" prefWidth="274.0" promptText="---" />
+      <Label layoutX="31.0" layoutY="194.0" text="Author" />
+      <TextArea fx:id="tfDescription" layoutX="32.0" layoutY="303.0" prefHeight="123.0" prefWidth="274.0" promptText="---" wrapText="true" />
+      <Label layoutX="32.0" layoutY="285.0" text="Description" />
+      <TextField fx:id="tfPrice" layoutX="32.0" layoutY="451.0" prefHeight="25.0" prefWidth="103.0" promptText="---" />
+      <Label layoutX="33.0" layoutY="435.0" prefHeight="17.0" prefWidth="42.0" text="Price" />
+      <TextField fx:id="tfDatePublished" layoutX="163.0" layoutY="451.0" prefHeight="25.0" prefWidth="143.0" promptText="---" />
+      <Label layoutX="164.0" layoutY="435.0" prefHeight="17.0" prefWidth="90.0" text="Date Published" />
+      <TextField fx:id="tfPublisher" layoutX="31.0" layoutY="259.0" prefHeight="25.0" prefWidth="274.0" promptText="---" />
+      <Label layoutX="32.0" layoutY="243.0" prefHeight="17.0" prefWidth="90.0" text="Publisher" />
+      <TextField fx:id="tfCategoryID" layoutX="33.0" layoutY="495.0" prefHeight="25.0" prefWidth="103.0" />
+      <Label layoutX="34.0" layoutY="479.0" prefHeight="17.0" prefWidth="103.0" text="Category id" />
+      <TextField fx:id="tfInventoryID" layoutX="164.0" layoutY="496.0" prefHeight="25.0" prefWidth="143.0" />
+      <Label layoutX="165.0" layoutY="480.0" prefHeight="17.0" prefWidth="90.0" text="Inventory id" />
+      <Button layoutX="888.0" layoutY="72.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="90.0" text="Advanced Search" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Arial" size="9.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
