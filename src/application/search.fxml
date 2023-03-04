@@ -44,7 +44,7 @@
       <Label layoutX="32.0" layoutY="285.0" text="Description" />
       <TextField fx:id="tfPrice" layoutX="32.0" layoutY="451.0" prefHeight="25.0" prefWidth="103.0" promptText="---" />
       <Label layoutX="33.0" layoutY="435.0" prefHeight="17.0" prefWidth="42.0" text="Price" />
-      <TextField fx:id="tfDatePublished" layoutX="163.0" layoutY="451.0" prefHeight="25.0" prefWidth="143.0" promptText="---" />
+      <TextField fx:id="tfDatePublished" layoutX="163.0" layoutY="451.0" prefHeight="25.0" prefWidth="143.0" promptText="yyyy-mm-dd" />
       <Label layoutX="164.0" layoutY="435.0" prefHeight="17.0" prefWidth="90.0" text="Date Published" />
       <TextField fx:id="tfPublisher" layoutX="31.0" layoutY="259.0" prefHeight="25.0" prefWidth="274.0" promptText="---" />
       <Label layoutX="32.0" layoutY="243.0" prefHeight="17.0" prefWidth="90.0" text="Publisher" />
