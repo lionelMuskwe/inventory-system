@@ -135,24 +135,41 @@ public class SearchController {
 		
 	}
 	
-	@FXML
-	public void updateRecord() {
-		Books selectedBook = this.tvBooks.getSelectionModel().getSelectedItem();
-		System.out.println(selectedBook.getTitle());
-	}
-	
 	@FXML 
 	public void insertRecord() {
 		String query = String.format("INSERT INTO `products`( `ISBN`, `title`, `author`, `description`, `image`, `price`,`date_published`, `publisher`, `inventory_id`, `category_id`) VALUES "
-				+ "('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')", tfISBN.getText(), tfTitle.getText(), tfAuthor.getText(),tfDescription.getText(),"https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png", tfPrice.getText(),tfDatePublished.getText(), tfPublisher.getText(), tfInventoryID.getText(), tfCategoryID.getText());
-		System.out.println(query);
+				+ "('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')", tfISBN.getText(), tfTitle.getText(), tfAuthor.getText(),tfDescription.getText(),"https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png", 
+				tfPrice.getText(),tfDatePublished.getText(), tfPublisher.getText(), tfInventoryID.getText(), tfCategoryID.getText());
 		executeQuery(query);
-		
+		System.out.println("-Notification: New Product Created");
+	}
+	
+	@FXML
+	public void updateRecord() {
+		String query = 
+				"UPDATE `products` SET title = '" + tfTitle.getText() + 
+				"', `ISBN` = '" + tfISBN.getText() +
+				"', `title` = '" + tfTitle.getText() +
+				"', `author` = '" + tfAuthor.getText() +
+				"', `description` = '" + tfDescription.getText() +
+				"', `price` = '" + tfPrice.getText() +
+				"', `date_published` = '" + tfDatePublished.getText() +
+				"', `publisher` = '" + tfPublisher.getText() +
+				"', `inventory_id` = '" + tfInventoryID.getText() +
+				"', `category_id` = '" + tfCategoryID.getText() +
+				"' WHERE id = " + tfID.getText() ;
+		System.out.println("--Notification: Product updated !");
+		executeQuery(query);
+						
 	}
 	
 	@FXML 
 	public void deleteRecord() {
-		
+		String query = 
+				String.format("Delete from products where id = %s", tfID.getText());
+				System.out.println(query);
+		executeQuery(query);
+		System.out.println("--Notification: Product deleted !");
 	}
 	
 	@FXML 
@@ -192,19 +209,13 @@ public class SearchController {
 		try	{
 			st = conn.createStatement();
 			st.execute(query);
+			searchBooks();
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}
 	}
 	
 }
-
-//@FXML 
-//public void insertRecord() {
-//	String query = "INSERT INTO `products`(`id`, `ISBN`, `title`, `author`, `description`, `price`, `image`,`date_published`, `publisher`, `inventory_id`, `category_id`) VALUES "
-//			+ "('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]','[value-10]', '[value-11]')";
-//}
-
 
 
 
