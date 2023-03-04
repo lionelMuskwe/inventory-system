@@ -72,7 +72,9 @@ public class SearchController {
 
     @FXML
     private TextField tfTitle;
-
+    
+    @FXML
+    private Button clearSidePanel;
 
     @FXML
     private Button updateRecordBtn;
@@ -163,6 +165,20 @@ public class SearchController {
 		tfCategoryID.setText(selectedBook.getCategoryID());
 		
 
+	}
+	
+	@FXML
+	public void clearSidePanel() {
+		tfTitle.clear();
+		tfAuthor.clear();
+		tfDescription.clear();
+		tfPrice.clear();
+		tfPublisher.clear();
+		tfDatePublished.clear();
+		tfISBN.clear();
+		tfID.clear();
+		tfInventoryID.clear();
+		tfCategoryID.clear();
 	}
 	
 	

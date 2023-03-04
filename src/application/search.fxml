@@ -20,7 +20,7 @@
       </ImageView>
       <TextField fx:id="searchTextField" layoutX="552.0" layoutY="24.0" prefHeight="39.0" prefWidth="324.0" promptText="Search Book by Title" />
       <Button fx:id="searchButton" layoutX="880.0" layoutY="24.0" mnemonicParsing="false" onAction="#searchBooks" prefHeight="39.0" prefWidth="103.0" text="Search database" />
-      <TableView fx:id="tvBooks" layoutX="338.0" layoutY="104.0" onMouseClicked="#passDetailsToTextfields" prefHeight="521.0" prefWidth="644.0">
+      <TableView fx:id="tvBooks" layoutX="338.0" layoutY="104.0" onMouseClicked="#passDetailsToTextfields" prefHeight="557.0" prefWidth="644.0">
          <columns>
             <TableColumn fx:id="colID" prefWidth="75.0" text="ID" />
             <TableColumn fx:id="colTitle" prefWidth="160.0" text="Title" />
@@ -29,9 +29,9 @@
             <TableColumn fx:id="colPubDate" prefWidth="103.0" text="Pub Date" />
          </columns>
       </TableView>
-      <Button fx:id="insertRecordBtn" layoutX="45.0" layoutY="535.0" mnemonicParsing="false" onAction="#insertRecord" prefHeight="25.0" prefWidth="243.0" text="Insert Record" />
-      <Button fx:id="updateRecordBtn" layoutX="46.0" layoutY="566.0" mnemonicParsing="false" onAction="#updateRecord" prefHeight="25.0" prefWidth="243.0" text="Update Record" />
-      <Button fx:id="deleteRecordBtn" layoutX="46.0" layoutY="597.0" mnemonicParsing="false" onAction="#deleteRecord" prefHeight="25.0" prefWidth="243.0" text="Delete Record" />
+      <Button fx:id="insertRecordBtn" layoutX="45.0" layoutY="571.0" mnemonicParsing="false" onAction="#insertRecord" prefHeight="25.0" prefWidth="243.0" text="Insert Record" />
+      <Button fx:id="updateRecordBtn" layoutX="46.0" layoutY="602.0" mnemonicParsing="false" onAction="#updateRecord" prefHeight="25.0" prefWidth="243.0" text="Update Record" />
+      <Button fx:id="deleteRecordBtn" layoutX="46.0" layoutY="633.0" mnemonicParsing="false" onAction="#deleteRecord" prefHeight="25.0" prefWidth="243.0" text="Delete Record" />
       <TextField fx:id="tfID" layoutX="31.0" layoutY="111.0" prefHeight="25.0" prefWidth="69.0" promptText="---" />
       <Label layoutX="33.0" layoutY="94.0" text="id" />
       <TextField fx:id="tfISBN" layoutX="119.0" layoutY="112.0" prefHeight="25.0" prefWidth="184.0" promptText="---" />
@@ -57,5 +57,6 @@
             <Font name="Arial" size="9.0" />
          </font>
       </Button>
+      <Button fx:id="clearSidePanel" layoutX="45.0" layoutY="535.0" mnemonicParsing="false" onAction="#clearSidePanel" prefHeight="17.0" prefWidth="53.0" text="Clear" />
    </children>
 </AnchorPane>
