@@ -27,8 +27,8 @@ public class Books {
 		this.inventoryID = inventoryID;
 		this.categoryID = categoryID;
 	}
-	public int getId() {
-		return id;
+	public String getId() {
+		return Integer.toString(id);
 	}
 
 	public void setId(int id) {
@@ -59,16 +59,16 @@ public class Books {
 		this.description = description;
 	}
 
-	public double getPrice() {
-		return price;
+	public String getPrice() {
+		return Double.toString(price);
 	}
 
 	public void setPrice(double price) {
 		this.price = price;
 	}
 
-	public Date getDatePub() {
-		return datePub;
+	public String getDatePub() {
+		return datePub.toString();
 	}
 
 	public void setDatePub(Date datePub) {
