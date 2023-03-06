@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 //import application.SceneController;
 import java.sql.DriverManager;
+import application.StaticStrings;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ import application.DashboardController;
 import javafx.scene.control.TextField;
 
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class LoginController {
@@ -27,6 +29,8 @@ public class LoginController {
 	private ImageView loginLogo;
 	@FXML
 	private Button loginButton;
+	@FXML
+	private Text errorMessage;
 	
 	@FXML 
 	public void login(ActionEvent event) {
@@ -35,13 +39,19 @@ public class LoginController {
 			System.out.println(event.toString());
 			
 //			String username = loginUsername.getText();
+//			String password = loginPassword.getText();
+			
 			String username = "root";
-			String password = loginPassword.getText();
+			String password = "";
 			
 			System.out.println(String.format("Details are: %s  and %s ", username, password));
 			if (establishDatabaseConnection(username, password) != null) {				
 				System.out.println("Switching to Dashboard !");
 				switchSceneToDashboard(event, username);
+			} else {
+				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+				System.out.println(StaticStrings.checkInternetConnection);
+				errorMessage.setText(StaticStrings.checkInternetConnection);
 			}
 		}
 		catch (Exception ex) {

@@ -6,6 +6,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
    <children>
@@ -20,5 +22,11 @@
          </image>
       </ImageView>
       <Button fx:id="loginButton" layoutX="429.0" layoutY="467.0" mnemonicParsing="false" onAction="#login" prefHeight="72.0" prefWidth="181.0" text="Login" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="errorMessage" fill="RED" layoutX="216.0" layoutY="447.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="608.0">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
