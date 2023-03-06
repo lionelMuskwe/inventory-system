@@ -14,8 +14,14 @@
             <Image url="@assets/images/rr-icon.png" />
          </image>
       </ImageView>
-      <Button fx:id="goToSearchPage" layoutX="43.0" layoutY="188.0" mnemonicParsing="false" onAction="#openSearchPage" prefHeight="80.0" prefWidth="290.0" text="Search for item" />
-      <Button fx:id="goToInventoryPage" layoutX="43.0" layoutY="309.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="290.0" text="View Inventory" />
+      <Button fx:id="goToSearchPage" layoutX="43.0" layoutY="188.0" mnemonicParsing="false" onAction="#openSearchPage" prefHeight="80.0" prefWidth="290.0" text="Manage Products">
+         <font>
+            <Font size="30.0" />
+         </font></Button>
+      <Button layoutX="43.0" layoutY="309.0" mnemonicParsing="false" onAction="#openUserManagementPage" prefHeight="80.0" prefWidth="290.0" text="Manage Users">
+         <font>
+            <Font size="30.0" />
+         </font></Button>
       <Button fx:id="gotToStockLevelsPage" layoutX="43.0" layoutY="433.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="290.0" text="Stock Levels" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <Text layoutX="825.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in as:" wrappingWidth="126.0">

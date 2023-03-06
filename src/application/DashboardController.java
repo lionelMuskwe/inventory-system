@@ -43,4 +43,17 @@ public class DashboardController {
 		stage.setScene(scene);
 		stage.show();
 	}
+	
+	public void openUserManagementPage(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("users.fxml"));
+		Parent root = (Parent) loader.load();
+		
+		UsersController usersController = loader.getController();
+		usersController.searchUsers(event);
+		
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
 }
