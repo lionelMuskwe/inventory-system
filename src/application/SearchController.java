@@ -8,12 +8,14 @@ import java.util.Date;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.Button;
 
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TableColumn;
@@ -79,9 +81,23 @@ public class SearchController {
 
     @FXML
     private Button updateRecordBtn;
+    
+    @FXML
+    private AnchorPane searchPageAnchorPane;
 
+//	Internal Class variables below
+    
+    // When delete count is equal to 2, then execute delete query.
+    private int deleteCount = 1;
 	
-	
+    public void handleMouseClick(Event event){
+    	System.out.println(event.getSource());
+    	System.out.println("-----------------------------------------------");
+    	if (event.getSource() == searchPageAnchorPane) {
+    		resetDelete();
+    	}
+    }
+    
 	public ObservableList<Books> getBooks(){
 		ObservableList<Books> bookList = FXCollections.observableArrayList();
 		String searchWord = "%" + searchTextField.getText() + "%";
@@ -167,11 +183,24 @@ public class SearchController {
 	
 	@FXML 
 	public void deleteRecord() {
-		String query = 
-				String.format("Delete from products where id = %s", tfID.getText());
-				System.out.println(query);
-		executeQuery(query);
-		System.out.println("--Notification: Product deleted !");
+		if (deleteCount == 2) {
+			String query = 
+					String.format("Delete from products where id = %s", tfID.getText());
+			System.out.println(query);
+			executeQuery(query);
+			deleteRecordBtn.setText("Delete Record");
+			deleteCount = 1;
+			System.out.println("--Notification: Product deleted !");
+		} else if (deleteCount == 1){
+			// Set button text to confirm delete
+			deleteRecordBtn.setText("Confirm delete ?");
+			deleteCount += 1;
+		}
+	}
+	
+	public void resetDelete() {
+		deleteCount = 1;
+		deleteRecordBtn.setText("Delete Record");
 	}
 	
 	@FXML 
