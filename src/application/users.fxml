@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UsersController">
+   <children>
+      <AnchorPane fx:id="searchPageAnchorPane" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#handleMouseClick" prefHeight="700.0" prefWidth="1000.0">
+         <children>
+            <ImageView fitHeight="52.0" fitWidth="114.0" layoutX="27.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/images/rr-icon.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="searchTextField" layoutX="552.0" layoutY="24.0" prefHeight="39.0" prefWidth="324.0" promptText="Enter username" />
+            <Button fx:id="searchButton" layoutX="880.0" layoutY="24.0" mnemonicParsing="false" onAction="#searchUsers" prefHeight="39.0" prefWidth="103.0" text="Search Records" />
+            <TableView fx:id="tvUsers" layoutX="338.0" layoutY="104.0" onMouseClicked="#passDetailsToTextfields" prefHeight="557.0" prefWidth="644.0">
+               <columns>
+                  <TableColumn fx:id="colID" prefWidth="57.0" text="ID" />
+                  <TableColumn fx:id="colUsername" prefWidth="92.0" text="Username" />
+                  <TableColumn fx:id="colFirstName" prefWidth="109.0" text="First Name" />
+                  <TableColumn fx:id="colLastName" prefWidth="98.0" text="Last Name" />
+                  <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="221.0" text="Full Address" />
+                  <TableColumn fx:id="colRole" prefWidth="66.0" text="Role" />
+               </columns>
+            </TableView>
+            <Button fx:id="createUserBtn" layoutX="36.0" layoutY="571.0" mnemonicParsing="false" onAction="#createUser" prefHeight="25.0" prefWidth="243.0" text="Create New User" />
+            <Button fx:id="updateUserBtn" layoutX="37.0" layoutY="602.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="25.0" prefWidth="243.0" text="Update User Record" />
+            <Button fx:id="deleteUserBtn" layoutX="37.0" layoutY="633.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="25.0" prefWidth="243.0" text="Delete User Record" />
+            <TextField fx:id="tfID" layoutX="31.0" layoutY="111.0" prefHeight="25.0" prefWidth="69.0" promptText="---" />
+            <Label layoutX="33.0" layoutY="94.0" prefHeight="17.0" prefWidth="53.0" text=" User id" />
+            <TextField fx:id="tfUsername" layoutX="31.0" layoutY="161.0" prefHeight="25.0" prefWidth="274.0" promptText="---" />
+            <Label layoutX="31.0" layoutY="144.0" prefHeight="17.0" prefWidth="90.0" text="Username" />
+            <TextField fx:id="tfFirstName" layoutX="30.0" layoutY="211.0" prefHeight="25.0" prefWidth="127.0" promptText="---" />
+            <Label layoutX="31.0" layoutY="194.0" prefHeight="17.0" prefWidth="77.0" text="First Name" />
+            <TextField fx:id="tfRole" layoutX="32.0" layoutY="383.0" prefHeight="25.0" prefWidth="103.0" promptText="---" />
+            <Label layoutX="32.0" layoutY="366.0" prefHeight="17.0" prefWidth="42.0" text="Role" />
+            <TextField fx:id="tfAddress" layoutX="31.0" layoutY="259.0" prefHeight="25.0" prefWidth="274.0" promptText="---" />
+            <Label layoutX="32.0" layoutY="243.0" prefHeight="17.0" prefWidth="103.0" text="Full Address" />
+            <Button fx:id="clearSidePanel" layoutX="35.0" layoutY="544.0" mnemonicParsing="false" onAction="#clearSidePanel" prefHeight="17.0" prefWidth="53.0" text="Clear" />
+            <TextField fx:id="tfLastName" layoutX="178.0" layoutY="211.0" prefHeight="25.0" prefWidth="127.0" promptText="---" />
+            <Label layoutX="178.0" layoutY="194.0" prefHeight="17.0" prefWidth="77.0" text="Last Name" />
+            <TextField fx:id="tfTelephone" layoutX="31.0" layoutY="314.0" prefHeight="25.0" prefWidth="274.0" promptText="---" />
+            <Label layoutX="32.0" layoutY="298.0" prefHeight="17.0" prefWidth="127.0" text="Telephone Number" />
+            <Line endX="257.5" layoutX="68.0" layoutY="531.0" startX="-37.5" />
+            <TextField fx:id="tfAge" layoutX="139.0" layoutY="111.0" prefHeight="25.0" prefWidth="69.0" promptText="---" />
+            <Label layoutX="141.0" layoutY="94.0" prefHeight="17.0" prefWidth="53.0" text="Age" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
