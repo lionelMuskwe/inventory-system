@@ -22,11 +22,11 @@
       <Button fx:id="searchButton" layoutX="880.0" layoutY="24.0" mnemonicParsing="false" onAction="#searchBooks" prefHeight="39.0" prefWidth="103.0" text="Search database" />
       <TableView fx:id="tvBooks" layoutX="338.0" layoutY="104.0" onMouseClicked="#passDetailsToTextfields" prefHeight="557.0" prefWidth="644.0">
          <columns>
-            <TableColumn fx:id="colID" prefWidth="75.0" text="ID" />
-            <TableColumn fx:id="colTitle" prefWidth="160.0" text="Title" />
-            <TableColumn fx:id="colDescription" prefWidth="251.0" text="Decription" />
-            <TableColumn fx:id="colPrice" prefWidth="74.0" text="Price" />
-            <TableColumn fx:id="colPubDate" prefWidth="103.0" text="Pub Date" />
+            <TableColumn fx:id="colID" prefWidth="49.0" text="ID" />
+            <TableColumn fx:id="colTitle" prefWidth="174.0" text="Title" />
+            <TableColumn fx:id="colDescription" prefWidth="258.0" text="Decription" />
+            <TableColumn fx:id="colPrice" minWidth="0.0" prefWidth="62.0" text="Price" />
+            <TableColumn fx:id="colPubDate" prefWidth="120.0" text="Pub Date" />
          </columns>
       </TableView>
       <Button fx:id="insertRecordBtn" layoutX="45.0" layoutY="571.0" mnemonicParsing="false" onAction="#insertRecord" prefHeight="25.0" prefWidth="243.0" text="Insert Record" />
