@@ -12,7 +12,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UsersController">
    <children>
-      <AnchorPane fx:id="searchPageAnchorPane" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#handleMouseClick" prefHeight="700.0" prefWidth="1000.0">
+      <AnchorPane fx:id="userPageAnchorPane" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#handleMouseClick" prefHeight="700.0" prefWidth="1000.0">
          <children>
             <ImageView fitHeight="52.0" fitWidth="114.0" layoutX="27.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -31,7 +31,6 @@
                   <TableColumn fx:id="colRole" prefWidth="66.0" text="Role" />
                </columns>
             </TableView>
-            <Button fx:id="createUserBtn" layoutX="36.0" layoutY="571.0" mnemonicParsing="false" onAction="#createUser" prefHeight="25.0" prefWidth="243.0" text="Create New User" />
             <Button fx:id="updateUserBtn" layoutX="37.0" layoutY="602.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="25.0" prefWidth="243.0" text="Update User Record" />
             <Button fx:id="deleteUserBtn" layoutX="37.0" layoutY="633.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="25.0" prefWidth="243.0" text="Delete User Record" />
             <TextField fx:id="tfID" layoutX="31.0" layoutY="111.0" prefHeight="25.0" prefWidth="69.0" promptText="---" />
