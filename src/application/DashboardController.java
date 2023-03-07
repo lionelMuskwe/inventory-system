@@ -49,7 +49,7 @@ public class DashboardController {
 		Parent root = (Parent) loader.load();
 		
 		UsersController usersController = loader.getController();
-		usersController.searchUsers(event);
+		usersController.searchUsers();
 		
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Scene scene = new Scene(root);
