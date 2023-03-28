@@ -12,7 +12,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UsersController">
    <children>
-      <AnchorPane fx:id="userPageAnchorPane" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#handleMouseClick" prefHeight="700.0" prefWidth="1000.0">
+      <AnchorPane fx:id="userPageAnchorPane" layoutY="21.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#handleMouseClick" prefHeight="700.0" prefWidth="1000.0">
          <children>
             <ImageView fitHeight="52.0" fitWidth="114.0" layoutX="27.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -51,6 +51,10 @@
             <Line endX="257.5" layoutX="68.0" layoutY="531.0" startX="-37.5" />
             <TextField fx:id="tfAge" layoutX="139.0" layoutY="111.0" prefHeight="25.0" prefWidth="69.0" promptText="---" />
             <Label layoutX="141.0" layoutY="94.0" prefHeight="17.0" prefWidth="53.0" text="Age" />
+            <Button fx:id="makeAdminButton" layoutX="235.0" layoutY="496.0" mnemonicParsing="false" onAction="#makeAdmin" onMouseClicked="#makeAdmin" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #00bb00;" text="Make Admin" />
+            <Button fx:id="makeUserButton" layoutX="31.0" layoutY="496.0" mnemonicParsing="false" onAction="#makeRegularUser" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: #D3D3D3;" text="Make User" />
+            <Button fx:id="makeEmployeeButton" layoutX="122.0" layoutY="496.0" mnemonicParsing="false" onAction="#makeEmployee" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #FDFD96;" text="Make Employee" />
+            <Line endX="257.5" layoutX="68.0" layoutY="483.0" startX="-37.5" />
          </children>
       </AnchorPane>
    </children>
