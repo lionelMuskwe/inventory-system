@@ -1,6 +1,7 @@
 package application;
 
 import javafx.fxml.FXML;
+import application.StaticVariables;
 
 import javafx.scene.control.Button;
 
@@ -68,6 +69,12 @@ public class UsersController {
 	private TextField tfTelephone;
 	@FXML
 	private TextField tfAge;
+	@FXML 
+	private Button makeAdminButton;
+	@FXML 
+	private Button makeEmployeeButton;
+	@FXML 
+	private Button makeUserButton;
 	
 	private int deleteCount = 1;
 
@@ -137,7 +144,7 @@ public class UsersController {
 	
 	// Event Listener on TableView[#tvBooks].onMouseClicked
 	@FXML
-	public void passDetailsToTextfields(MouseEvent event) {
+	public void passDetailsToTextfields() {
 		Users selectedUser = this.tvUsers.getSelectionModel().getSelectedItem();
 		tfID.setText(selectedUser.getId());
 		tfUsername.setText(selectedUser.getUsername());
@@ -147,6 +154,13 @@ public class UsersController {
 		tfRole.setText(selectedUser.getRole());
 		tfTelephone.setText(selectedUser.getTelephone());
 		tfAge.setText(selectedUser.getAge());
+	}
+	
+	public void refreshSidePanel() {
+		// fetch new details
+		
+//		clearSidePanel();
+		passDetailsToTextfields();
 	}
 	
 	
@@ -172,6 +186,42 @@ public class UsersController {
 		executeQuery(query);
 		System.out.println("--Notification: User Profile updated !");
 	}
+	
+	public void makeAdmin() {
+		String query = 
+				"UPDATE `users` SET `role` = '" + StaticVariables.ROLE_ADMIN +
+				"' WHERE id = " + tfID.getText() ;
+		if (executeQuery(query)) {
+			tfRole.setText(String.valueOf(StaticVariables.ROLE_ADMIN));;
+		}
+		
+		System.out.println("--Notification: Changed prieviledges to Admin !");
+	}
+	
+	public void makeEmployee() {
+		String query = 
+				"UPDATE `users` SET `role` = '" + StaticVariables.ROLE_EMPLOYEE +
+				"' WHERE id = " + tfID.getText() ;
+		executeQuery(query);
+		if (executeQuery(query)) {
+			tfRole.setText(String.valueOf(StaticVariables.ROLE_EMPLOYEE));
+		}
+		refreshSidePanel();
+		System.out.println("--Notification: Changed prieviledges to Employee !");
+		}
+		
+	
+	public void makeRegularUser() {
+		String query = 
+				"UPDATE `users` SET `role` = '" + StaticVariables.ROLE_USER +
+				"' WHERE id = " + tfID.getText() ;
+		if (executeQuery(query)) {
+			tfRole.setText(String.valueOf(StaticVariables.ROLE_USER));
+		}
+		refreshSidePanel();
+		System.out.println("--Notification: Changed prieviledges to Normal User !");
+	}
+
 	
 	
 	// Event Listener on Button[#deleteUserBtn].onAction
@@ -200,7 +250,7 @@ public class UsersController {
 	
 	// Event Listener on Button[#clearSidePanel].onAction
 	@FXML
-	public void clearSidePanel(ActionEvent event) {
+	public void clearSidePanel() {
 		tfID.clear();
 		tfUsername.clear();
 		tfFirstName.clear();
@@ -211,15 +261,17 @@ public class UsersController {
 		tfAge.clear();
 	}
 	
-	private void executeQuery(String query) {
+	private boolean executeQuery(String query) {
 		Connection conn = DatabaseConnection.getInstance();
 		Statement st;
 		try	{
 			st = conn.createStatement();
 			st.execute(query);
 			searchUsers();
+			return true;
 		}catch(Exception ex) {
 			ex.printStackTrace();
+			return false;
 		}
 	}
 }
